@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Graphql authentication frontend 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Authentication frontend from another repo named graphql_auth
 
-## Available Scripts
+## Need to finish
 
 In the project directory, you can run:
 
-### `npm start`
+### `Just testing this line ))) `
 

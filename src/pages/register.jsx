@@ -22,10 +22,11 @@ const REGISTER_USER = gql`
 export function Register() {
     const context = useContext(AuthContext)
     const navigate = useNavigate()
-    const [error, setErrors] = useState([])
+    const [errors, setErrors] = useState([])
 
     function registerUserCallback() {
         console.log('callback hit')
+        registerUser()
     }
 
     const { onChange, onSubmit, values } = useForm(registerUserCallback, {
@@ -73,6 +74,9 @@ export function Register() {
                 </div>
                 <button className="fluid teal large ui button" type="submit">Submit</button>
             </form>
+            {errors && errors.map(function (error) {
+                return <div class="ui red message">{error.message}</div>
+            })}
         </div>
     )
 }

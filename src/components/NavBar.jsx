@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/authContext'
 
 export default function NavBar() {
+    const navigate = useNavigate()
+    const { user, logout } = useContext(AuthContext)
+
+    const onLogout = () => {
+        logout()
+        navigate('/')
+    }
+    console.log({ user })
     return (
         <div className="ui container mt-3">
             <div className="ui secondary teal inverted  menu">
@@ -11,9 +20,9 @@ export default function NavBar() {
                 <Link className="item" to="/register">
                     Register
                 </Link>
-                <a className="item">
-                    Friends
-                </a>
+                <Link className="item" to="/login">
+                    Login
+                </Link>
                 <div className="right menu">
                     <div className="item">
                         <div className="ui icon input">
@@ -21,9 +30,9 @@ export default function NavBar() {
                             <i className="search link icon"></i>
                         </div>
                     </div>
-                    <a className="ui item">
+                    <Link className="ui item" to="#" onClick={onLogout}>
                         Logout
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
